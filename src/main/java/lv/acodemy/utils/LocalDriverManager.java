@@ -41,19 +41,6 @@ public class LocalDriverManager {
 
     @SneakyThrows
     public static RemoteWebDriver configureRemote(){
-//        ChromeOptions browserOptions = new ChromeOptions();
-//        browserOptions.setPlatformName("Windows 10");
-//        browserOptions.setBrowserVersion("latest");
-//        Map<String, Object> sauceOptions = new HashMap<>();
-//        sauceOptions.put("username", "oauth-zlavik228-8d90e");
-//        sauceOptions.put("accessKey", "d4c75ebb-1fa4-4101-94d4-67c22465c0e6");
-//        sauceOptions.put("build", "selenium-build-G5JNU");
-//        sauceOptions.put("name", "<your test name>");
-//        browserOptions.setCapability("sauce:options", sauceOptions);
-//
-//        URL url = new URL("https://ondemand.eu-central-1.saucelabs.com:443/wd/hub");
-//        return new RemoteWebDriver(url, browserOptions);
-
         ChromeOptions browserOptions = new ChromeOptions();
         browserOptions.setPlatformName("Windows 10");
         browserOptions.setBrowserVersion("latest");
@@ -66,6 +53,8 @@ public class LocalDriverManager {
 
         URL url = new URL("https://ondemand.eu-central-1.saucelabs.com:443/wd/hub");
         return new RemoteWebDriver(url, browserOptions);
+
+
     }
 
     public static class ConfigurationProperties {
