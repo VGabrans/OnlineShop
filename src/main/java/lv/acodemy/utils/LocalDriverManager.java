@@ -55,7 +55,7 @@ public class LocalDriverManager {
 //        return new RemoteWebDriver(url, browserOptions);
 
         ChromeOptions browserOptions = new ChromeOptions();
-        browserOptions.setPlatformName("Windows 11");
+        browserOptions.setPlatformName("Windows 10");
         browserOptions.setBrowserVersion("latest");
         Map<String, Object> sauceOptions = new HashMap<>();
         sauceOptions.put("username", "oauth-zlavik228-8d90e");
