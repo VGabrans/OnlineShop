@@ -1,6 +1,9 @@
 package lv.acodemy.utils;
 
 import lombok.SneakyThrows;
+import org.apache.commons.configuration2.PropertiesConfiguration;
+import org.apache.commons.configuration2.builder.fluent.Configurations;
+import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -38,6 +41,19 @@ public class LocalDriverManager {
 
     @SneakyThrows
     public static RemoteWebDriver configureRemote(){
+//        ChromeOptions browserOptions = new ChromeOptions();
+//        browserOptions.setPlatformName("Windows 10");
+//        browserOptions.setBrowserVersion("latest");
+//        Map<String, Object> sauceOptions = new HashMap<>();
+//        sauceOptions.put("username", "oauth-zlavik228-8d90e");
+//        sauceOptions.put("accessKey", "d4c75ebb-1fa4-4101-94d4-67c22465c0e6");
+//        sauceOptions.put("build", "selenium-build-G5JNU");
+//        sauceOptions.put("name", "<your test name>");
+//        browserOptions.setCapability("sauce:options", sauceOptions);
+//
+//        URL url = new URL("https://ondemand.eu-central-1.saucelabs.com:443/wd/hub");
+//        return new RemoteWebDriver(url, browserOptions);
+
         ChromeOptions browserOptions = new ChromeOptions();
         browserOptions.setPlatformName("Windows 11");
         browserOptions.setBrowserVersion("latest");
@@ -50,6 +66,17 @@ public class LocalDriverManager {
 
         URL url = new URL("https://ondemand.eu-central-1.saucelabs.com:443/wd/hub");
         return new RemoteWebDriver(url, browserOptions);
+    }
+
+    public static class ConfigurationProperties {
+
+        public static PropertiesConfiguration getConfiguration() {
+            try {
+                return new Configurations().properties("config.properties");
+            } catch (ConfigurationException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
 }
